@@ -30,6 +30,7 @@ public class Main {
 	JButton win,lose;
 	JTable table1;
 	JFrame main, depositWindow;
+	String [] sportList = {"Football","Basketball","Badminton","American Football","Baseball"};
 	
 	Main(){
 		//setting up the main frame and add the main panel to the frame
@@ -39,7 +40,7 @@ public class Main {
         //setting the bounds for the JFrame
 	    main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    mainComponents();
-	    main.add(p1);
+	    main.add(p);
 	    main.setVisible(true);
 	}
 	
@@ -61,8 +62,6 @@ public class Main {
 		balanceLabel = new JLabel("Amount : ");
 		balance = new JLabel();
 		depositButton = new JButton("Deposit");
-		heading = new JLabel("Football");
-		heading.setFont(new Font("Calibri", Font.BOLD, 20));
 		odds = new JLabel("Odds: ");
 		oddsInput = new JTextField();
 		oddsInput.setColumns(3);
@@ -71,6 +70,8 @@ public class Main {
 		stakeInput.setColumns(5);
 		win = new JButton("Win");
 		lose = new JButton("Lose");
+		JComboBox sportSelection = new JComboBox(sportList);
+		sportSelection.setSelectedIndex(0);
 		p = new JPanel();
 		p1 = new JPanel();
 		p2 = new JPanel();
@@ -79,30 +80,30 @@ public class Main {
 		p5 = new JPanel();
 		
 		//adding different sections to the main jpanel
-		p1.add(p);
-		p1.add(p4);
-		p1.add(p2);
-		p1.add(p3);
-		p1.add(p5);
+		p.add(p1);
+		p.add(p2);
+		p.add(p3);
+		p.add(p4);
+		p.add(p5);
 		 
 		//set the layout of the main jpanel
-		p1.setLayout(new GridLayout(5,1));
-		p.setLayout(new FlowLayout(FlowLayout.LEFT));
+		p.setLayout(new GridLayout(5,1));
+		p1.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
 		//adding components to different jpanel
-		p.add(depositButton);
-	    p.add(balanceLabel);
-	    p.add(balance);
-	    p4.add(heading);
-	    p2.add(odds);
-	    p2.add(oddsInput);
-	    p2.add(stake);
-	    p2.add(stakeInput);
-	    p3.add(win);
-	    p3.add(lose);
+		p1.add(depositButton);
+	    p1.add(balanceLabel);
+	    p1.add(balance);
+	    p2.add(sportSelection);
+	    p3.add(odds);
+	    p3.add(oddsInput);
+	    p3.add(stake);
+	    p3.add(stakeInput);
+	    p4.add(win);
+	    p4.add(lose);
 	     
 	    //set the bounds of the main jpanel
-	    p1.setBounds(0,0,350,180);
+	    p.setBounds(0,0,350,180);
 	    
 	    //creating eventlistener for depositButton
 	    depositButton.addActionListener(new ActionListener() {
